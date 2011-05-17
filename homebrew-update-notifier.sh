@@ -13,15 +13,15 @@
 
 
 TERM_APP='/Applications/Utilities/Terminal.app'
-BREW_EXEC='/usr/local/bin/brew'
+BREW_EXEC='$HOME/.homebrew/bin/brew'
 GROWL_NOTIFY='/usr/local/bin/growlnotify'
 GROWL_TITLE="Homebrew Update(s) Available"
-  GROWL_ARGS="-n 'MacPorts' -d $GROWL_NOTIFY -a $BREW_EXEC"
+GROWL_ARGS="-n 'MacPorts' -d $GROWL_NOTIFY -a $BREW_EXEC"
 
 $BREW_EXEC update 2>&1 > /dev/null
 outdated=`$BREW_EXEC outdated`
 
-if [ -z $outdated ] ; then
+if [ -z "$outdated" ] ; then
     if [ -e $GROWL_NOTIFY ]; then
         # No updates available
         $GROWL_NOTIFY $GROWL_ARGS -m '' -t "No Homebrew Updates Available"
