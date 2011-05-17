@@ -28,7 +28,7 @@ if [ -z "$outdated" ] ; then
     fi
 else
     # We've got an outdated port or two
-    
+
     # Nofity via growl
     if [ -e $GROWL_NOTIFY ]; then
         lc=$((`echo "$outdated" | wc -l` - 1))
